@@ -18,6 +18,7 @@
                 <textarea name="post[body]" placeholder="今日も1日お疲れさまでした。">{{ old('post.body') }}</textarea>
                 <p class="body__error" style="color:red">{{ $errors->first('post.body') }}</p>
             </div>
+
             <input type="submit" value="store"/>
         </form>
         <div class="back">[<a href="/">back</a>]</div>
