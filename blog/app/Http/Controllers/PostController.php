@@ -42,21 +42,11 @@ class PostController extends Controller
         $input = $request['post'];
         $post->fill($input)->save();
         return redirect('/posts/' . $post->id);
-
-    public function show(Post $post)
-    {
-        return view('posts/show')->with(['post' => $post]);
-    return view('posts/index')->with(['posts' => $post->getPaginateByLimit()]);
-
     }
-    public function create()
+    
+    public function delete(Post $post)
     {
-        return view('posts/create');
-    }
-    public function store(Post $post, PostRequest $request)
-    {
-        $input = $request['post'];
-        $post->fill($input)->save();
-        return redirect('/posts/' . $post->id);
+        $post->delete();
+        return redirect('/');
     }
 }
