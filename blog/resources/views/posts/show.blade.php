@@ -22,6 +22,7 @@
         <div class="content">
             <div class="content__post">
                 <h2 class='title'>{{ $post->title }}</h2>
+                <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                 <p class='body'>{{ $post->body }}</p> 
                 <p class='updated_at'>{{$post->updated_at}}</p>
             </div>

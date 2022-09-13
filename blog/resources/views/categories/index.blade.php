@@ -19,8 +19,17 @@
                     </h2>
                     <a href="/categories/{{ $post->category->id }}">{{ $post->category->name }}</a>
                     <p class='body'>{{ $post->body }}</p>
+                    <form action="/posts/{{ $post->id }}" id="form_delete" method="post" style="display:inline">
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" style="display:none;"></input>
+                        <button type="submit">[<span onclick="return deletePost(this);">delete</span>]</button> 
+                    </form>
                 </div>
             @endforeach
+        </div>
+                <div class="footer">
+            <a href="/">back</a>
         </div>
         <div class='paginate'>
             {{ $posts->links() }}
